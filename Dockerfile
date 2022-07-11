@@ -9,4 +9,5 @@ RUN wget -qO - https://packages.sury.org/php/apt.gpg | apt-key add -
 RUN apt-get update && apt-get install -y php8.0 php8.0-fpm php8.0-mysql php8.0-curl php8.0-gd php8.0-mbstring php8.0-xml php8.0-zip
 
 # Entrypoint
-CMD ["nginx", "-g", "daemon off;"]
+COPY entrypoint.sh .
+CMD [ "/bin/bash", "/entrypoint.sh" ]
