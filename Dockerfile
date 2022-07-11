@@ -12,7 +12,9 @@ RUN apt-get update && apt-get install -y php8.0 php8.0-fpm php8.0-mysql php8.0-c
 COPY server.conf /temp/server.conf.default
 
 # Link nginx config file to container config file
-RUN ln -s /etc/nginx/templates/server.conf.template /home/container/server.conf
+RUN mkdir -p /etc/nginx/templates
+RUN ln -s /home/container/server.conf /etc/nginx/templates/server.conf.template
+
 
 # Entrypoint
 COPY entrypoint.sh .
