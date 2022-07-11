@@ -5,7 +5,7 @@ cd /home/container
 # Create template file if it doesn't exist
 FILE=server.conf
 if [ ! -f "$FILE" ]; then
-  echo "listen 80;" > $FILE
+  echo "listen ${SERVER_PORT};" > $FILE
 fi
 
 # Copy nginx config file to nginx folder
