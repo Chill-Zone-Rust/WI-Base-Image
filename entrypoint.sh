@@ -1,12 +1,11 @@
 #!/bin/bash
 
-cd /home/container
+cd /var/www/pterorust-wi
 
+# php artisan key:generate
+# php artisan migrate --seed --force
 
-# Copy conf file if it doesn't exist
-FILE=server.conf
-if [ ! -f "$FILE" ]; then
-  copy /temp/server.conf.default $FILE
-fi
+# php artisan view:clear
+# php artisan config:clear
 
 nginx -g "daemon off;"
